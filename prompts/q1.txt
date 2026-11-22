@@ -41,3 +41,7 @@ Report the result for each case
 17. add clue 8. Clue 8 succeeds exactly when the friend who prefers the data project works in research and has a favorite language other than javascript. Both conditions must hold for the same friend.
 
 18. test clue 8. 3 cases, 1 success 2 failures.
+
+19. implement only count_solutions(Active, N) for P1.b.Active is a list of clue numbers. Use candidate_assignment/1 to enumerate candidates and clue/2 to check every clue listed in Active against each fully filled-in candidate. Ignore omitted clues completely. An empty Active list should count every candidate. Use findall/3 or aggregate_all/3 to count the matching candidates and unify N with that count. Keep the file silent when loaded. Stop after implementing count_solutions/2. Testing and reporting the count for clues 1 through 8 are separate prompts.
+
+20. 

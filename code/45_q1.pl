@@ -57,3 +57,12 @@ clue(7, Solution) :-
 clue(8, Solution) :-
     member(p(_, research, Lang, data), Solution),
     Lang \= javascript.
+
+% count_solutions(+Active, ?N) counts candidates satisfying every listed clue.
+count_solutions(Active, N) :-
+    findall(Solution,
+            ( candidate_assignment(Solution),
+              forall(member(Number, Active), clue(Number, Solution))
+            ),
+            Solutions),
+    length(Solutions, N).
