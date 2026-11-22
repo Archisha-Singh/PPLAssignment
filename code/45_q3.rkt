@@ -51,3 +51,10 @@
   (newline)
   (display (postorder tree))
   (newline))
+
+;; An empty tree has height 0. A node adds one level to its taller subtree.
+(define (tree-height tree)
+  (if (null? tree)
+      0
+      (+ 1 (max (tree-height (cadr tree))
+                (tree-height (caddr tree))))))

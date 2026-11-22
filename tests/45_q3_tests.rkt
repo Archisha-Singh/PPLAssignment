@@ -48,3 +48,16 @@
 (check-equal? (postorder '(4 (2 () (3 () ())) (6 () ())))
               '(3 2 6 4)
               "postorder tree with both subtrees")
+
+(define print-all-traversals
+  (parameterize ([current-namespace (module->namespace solution-path)])
+    (eval 'print-all-traversals)))
+
+(check-equal? (with-output-to-string
+                (lambda ()
+                  (print-all-traversals '(4 (2 () (3 () ())) (6 () ())))))
+              "(2 3 4 6)\n(4 2 3 6)\n(3 2 6 4)\n"
+              "all traversals for a tree with both subtrees")
+(check-equal? (with-output-to-string (lambda () (print-all-traversals '())))
+              "()\n()\n()\n"
+              "all traversals for an empty tree")

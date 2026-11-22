@@ -24,4 +24,10 @@ AI has access to question statement and skills.md
 
 12. Read skills/scheme-dev/SKILL.md. In code/45_q3.rkt, add only (print-all-traversals tree). Use the existing traversal helpers to print the inorder, preorder, and postorder lists in that order, one list per line. Use display and newline, with no labels or extra output. Keep the file silent when loaded.
 
-13. 
+13. In tests/45_q3_tests.rkt, add tests that capture the exact output of print-all-traversals. For '(4 (2 () (3 () ())) (6 () ())), expect "(2 3 4 6)\n(4 2 3 6)\n(3 2 6 4)\n". For an empty tree, expect "()\n()\n()\n". Keep the existing tests and edit only this test file.
+
+14. Run `racket tests/45_q3_tests.rkt` from the repo root. Report whether the print-all-traversals tests and the existing tests pass. Include any errors. Leave all files unchanged.
+
+15. Read skills/scheme-dev/SKILL.md. In code/45_q3.rkt, add only (tree-height tree). Return 0 for an empty tree and 1 plus the larger of the two subtree heights for any other tree. A single node has height 1. Use only the assignment's allowed built-ins.
+
+16. 
