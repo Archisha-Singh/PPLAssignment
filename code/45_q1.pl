@@ -21,3 +21,9 @@ clue(1, Solution) :-
     member(p(Name, Dept, _, 'AI'), Solution),
     Name \= 'Dana',
     Dept \= research.
+
+% clue(2, +Solution) checks Alex's department and favorite language.
+clue(2, Solution) :-
+    member(p('Alex', Dept, Lang, _), Solution),
+    Dept \= development,
+    Lang \= 'c++'.
