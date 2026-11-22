@@ -58,3 +58,14 @@
       0
       (+ 1 (max (tree-height (cadr tree))
                 (tree-height (caddr tree))))))
+
+;; An empty tree contributes zero, a leaf contributes one, and an internal
+;; node contributes the sum of its subtree counts.
+(define (leaf-count tree)
+  (if (null? tree)
+      0
+      (let ((left (cadr tree))
+            (right (caddr tree)))
+        (if (and (null? left) (null? right))
+            1
+            (+ (leaf-count left) (leaf-count right))))))

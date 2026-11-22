@@ -61,3 +61,13 @@
 (check-equal? (with-output-to-string (lambda () (print-all-traversals '())))
               "()\n()\n()\n"
               "all traversals for an empty tree")
+
+(define tree-height
+  (parameterize ([current-namespace (module->namespace solution-path)])
+    (eval 'tree-height)))
+
+(check-equal? (tree-height '()) 0 "height of an empty tree")
+(check-equal? (tree-height '(7 () ())) 1 "height of a single node")
+(check-equal? (tree-height '(4 (2 () (3 () ())) (6 () ())))
+              3
+              "height of a tree with unequal subtree heights")
