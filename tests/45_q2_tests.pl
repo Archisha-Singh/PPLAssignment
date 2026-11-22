@@ -58,4 +58,14 @@ test(expression_division_with_remainder, [fail]) :-
 test(expression_division_by_zero, [fail]) :-
     expression([8, 0], op('/', _, _), _).
 
+test(render_expression_canonical_strings, [forall(member(Tree-Expected, [
+    7-"7",
+    op('*', op('+', 1, 2), 3)-"(1+2)*3",
+    op('+', 1, op('*', 2, 3))-"1+2*3",
+    op('+', op('+', 1, 2), 3)-"1+2+3",
+    op('-', 1, op('-', 2, 3))-"1-(2-3)"
+]))]) :-
+    findall(Text, render_expression(Tree, Text, _), Texts),
+    assertion(Texts == [Expected]).
+
 :- end_tests(p2).

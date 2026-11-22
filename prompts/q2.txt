@@ -26,4 +26,10 @@ Multiplication and division bind tighter than addition and subtraction. Parenthe
 
 Keep the existing predicates and tests unchanged.
 
-10.
+10.Add PlUnit tests for render_expression/3 in tests/45_q2_tests.pl. Check that an integer leaf renders as "7", (1+2)*3 renders as "(1+2)*3", 1+(2*3) renders as "1+2*3", (1+2)+3 renders as "1+2+3", and 1-(2-3) renders as "1-(2-3)". Compare against exact SWI-Prolog strings. Keep the existing tests and edit only this file.
+
+11. Run `swipl -q -s tests/45_q2_tests.pl -g run_tests -t halt`. Report whether the rendering tests and the existing tests pass. Show any failures or warnings. Leave all files unchanged.
+
+12. Read skills/prolog-dev/SKILL.md. In code/45_q2.pl, implement only generate_equation(Numbers, Equation). Use equation_split/3, expression/3, and render_expression/3. On backtracking, generate equations whose two sides have equal integer values. Join the rendered sides with "=" as an SWI-Prolog string with no spaces. Fail if no equation exists, including for lists shorter than two elements.
+
+13.

@@ -51,3 +51,12 @@ render_expression(op(Operator, LeftTree, RightTree), Text, Precedence) :-
     ;   RightOperand = RightText
     ),
     format(string(Text), '~s~a~s', [LeftOperand, Operator, RightOperand]).
+
+% generate_equation(+Numbers, ?Equation) enumerates equal-valued equations.
+generate_equation(Numbers, Equation) :-
+    equation_split(Numbers, Left, Right),
+    expression(Left, LeftTree, Value),
+    expression(Right, RightTree, Value),
+    render_expression(LeftTree, LeftText, _),
+    render_expression(RightTree, RightText, _),
+    format(string(Equation), '~s=~s', [LeftText, RightText]).
