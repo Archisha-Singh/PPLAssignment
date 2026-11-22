@@ -15,3 +15,17 @@
 (define (print-inorder tree)
   (display (inorder tree))
   (newline))
+
+;; Return the values of tree in root, left, right order.
+(define (preorder tree)
+  ;; Collect values in reverse order while visiting each left subtree first.
+  (define (walk subtree reversed-values)
+    (if (null? subtree)
+        reversed-values
+        (walk (caddr subtree)
+              (walk (cadr subtree)
+                    (cons (car subtree) reversed-values)))))
+  (let restore-order ((remaining (walk tree '())) (values '()))
+    (if (null? remaining)
+        values
+        (restore-order (cdr remaining) (cons (car remaining) values)))))

@@ -1,6 +1,7 @@
 #lang racket/base
 
 (require rackunit
+         racket/port
          racket/runtime-path)
 
 (define-runtime-path solution-path "../code/45_q3.rkt")
@@ -15,3 +16,15 @@
 (check-equal? (inorder '(4 (2 () (3 () ())) (6 () ())))
               '(2 3 4 6)
               "tree with both subtrees")
+
+(define print-inorder
+  (parameterize ([current-namespace (module->namespace solution-path)])
+    (eval 'print-inorder)))
+
+(check-equal? (with-output-to-string (lambda () (print-inorder '())))
+              "()\n"
+              "empty tree output")
+(check-equal? (with-output-to-string
+                (lambda () (print-inorder '(4 (2 () (3 () ())) (6 () ())))))
+              "(2 3 4 6)\n"
+              "tree with both subtrees output")
