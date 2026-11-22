@@ -1,8 +1,8 @@
 #lang racket/base
 
-;; Return the values of tree in left, root, right order.
+;; Return the node values in left–root–right order.
 (define (inorder tree)
-  ;; Return the subtree's values followed by the given suffix.
+  ;; An empty subtree leaves the suffix unchanged.
   (define (walk subtree suffix)
     (if (null? subtree)
         suffix
@@ -25,7 +25,8 @@
         (walk (caddr subtree)
               (walk (cadr subtree)
                     (cons (car subtree) reversed-values)))))
-  (let restore-order ((remaining (walk tree '())) (values '()))
+  (let restore-order ((remaining (walk tree '()))
+                      (values '()))
     (if (null? remaining)
         values
         (restore-order (cdr remaining) (cons (car remaining) values)))))
@@ -39,7 +40,8 @@
         (cons (car subtree)
               (walk (caddr subtree)
                     (walk (cadr subtree) reversed-values)))))
-  (let restore-order ((remaining (walk tree '())) (values '()))
+  (let restore-order ((remaining (walk tree '()))
+                      (values '()))
     (if (null? remaining)
         values
         (restore-order (cdr remaining) (cons (car remaining) values)))))
@@ -56,8 +58,9 @@
 (define (tree-height tree)
   (if (null? tree)
       0
-      (+ 1 (max (tree-height (cadr tree))
-                (tree-height (caddr tree))))))
+      (+ 1
+         (max (tree-height (cadr tree))
+              (tree-height (caddr tree))))))
 
 ;; An empty tree contributes zero, a leaf contributes one, and an internal
 ;; node contributes the sum of its subtree counts.

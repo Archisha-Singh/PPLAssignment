@@ -37,3 +37,13 @@ AI has access to question statement and skills.md
 18. Read skills/scheme-dev/SKILL.md. In code/45_q3.rkt, add only (leaf-count tree). Return 0 for an empty tree, 1 for a node with two empty subtrees, and the sum of the two subtree leaf counts otherwise. Use only the assignment's allowed built-ins.
 
 19. In tests/45_q3_tests.rkt, add tests that check leaf-count returns 0 for '(), 1 for '(7 () ()), 1 for '(1 () (2 () (3 () ()))), and 2 for '(a (b () ()) (c () ())). Keep the existing tests and edit only this test file.
+
+20. Run `racket tests/45_q3_tests.rkt` from the repo root. Report whether the leaf-count tests and the rest of the suite pass. Leave all files unchanged.
+
+21. Read skills/scheme-dev/SKILL.md. In code/45_q3.rkt, add only (print-height-and-leaves tree). Use tree-height and leaf-count to print one list in the form (height leaf-count), followed by a newline. Use display and newline. An empty tree should print (0 0). Keep the file silent when loaded.
+
+22. In tests/45_q3_tests.rkt, add tests that capture the exact output of print-height-and-leaves. Check that '() prints "(0 0)\n", '(7 () ()) prints "(1 1)\n", and '(4 (2 () (3 () ())) (6 () ())) prints "(3 2)\n". Keep the existing tests and edit only this test file.
+
+23. Run `racket tests/45_q3_tests.rkt` from the repo root. Report whether the print-height-and-leaves tests and the rest of the suite pass. Include any errors. Leave all files unchanged.
+
+24. Tidy the indentation, spacing, and comments in code/45_q3.rkt. Preserve all function names, behavior, and exact output. Edit only this file.

@@ -71,3 +71,33 @@
 (check-equal? (tree-height '(4 (2 () (3 () ())) (6 () ())))
               3
               "height of a tree with unequal subtree heights")
+
+(define leaf-count
+  (parameterize ([current-namespace (module->namespace solution-path)])
+    (eval 'leaf-count)))
+
+(check-equal? (leaf-count '()) 0 "leaf count of an empty tree")
+(check-equal? (leaf-count '(7 () ())) 1 "leaf count of a single node")
+(check-equal? (leaf-count '(1 () (2 () (3 () ()))))
+              1
+              "leaf count of a right-only tree")
+(check-equal? (leaf-count '(a (b () ()) (c () ())))
+              2
+              "leaf count of a tree with two leaves")
+
+(define print-height-and-leaves
+  (parameterize ([current-namespace (module->namespace solution-path)])
+    (eval 'print-height-and-leaves)))
+
+(check-equal? (with-output-to-string (lambda () (print-height-and-leaves '())))
+              "(0 0)\n"
+              "height and leaves output for an empty tree")
+(check-equal? (with-output-to-string
+                (lambda () (print-height-and-leaves '(7 () ()))))
+              "(1 1)\n"
+              "height and leaves output for a single node")
+(check-equal? (with-output-to-string
+                (lambda ()
+                  (print-height-and-leaves '(4 (2 () (3 () ())) (6 () ())))))
+              "(3 2)\n"
+              "height and leaves output for a tree with both subtrees")
