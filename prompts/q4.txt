@@ -13,3 +13,17 @@ AI has access to question and skills.md files internally.
 6. Run `racket tests/45_q4_tests.rkt` from the repo root. Report whether the my-map and my-length tests pass. Include any errors and leave all files unchanged.
 
 7. Read skills/scheme-dev/SKILL.md. In code/45_q4.rkt, add only (insert-if-short x lst n) using my-length and my-map. Recursively visit every list, including the outer list and empty sublists. Prepend x when the original list has fewer than n elements. Preserve the order of existing elements, leave atoms unchanged, and visit only the original elements during recursion.
+
+8. In tests/45_q4_tests.rkt, add tests for insert-if-short. Check that (insert-if-short 'x '() 1) returns '(x), (insert-if-short 'x '() 0) returns '(), and (insert-if-short 'x '(a () (b c)) 3) returns '(a (x) (x b c)). Also check that (insert-if-short 'x '((a) ()) 3) returns '(x (x a) (x)). Keep existing tests and edit only this file.
+
+9. Run `racket tests/45_q4_tests.rkt` from the repo root. Report whether the insert-if-short tests and the rest of the suite pass. Include any errors. Leave all files unchanged.
+
+10. Read skills/scheme-dev/SKILL.md. In code/45_q4.rkt, add only (make-inserter x len-ok?). Return a function that takes a list and recursively prepends x to every list whose original top-level length satisfies len-ok?. Include the outer list and empty sublists. Use my-length and my-map, preserve the order of existing elements, and leave atoms unchanged. Keep the existing insert-if-short definition as is for this step.
+
+11. In tests/45_q4_tests.rkt, add tests for make-inserter. Check that ((make-inserter 'x (lambda (n) (= n 2))) '((a b) ())) returns '(x (x a b) ()). Check that ((make-inserter 'x (lambda (n) (= n 0))) '(() a)) returns '((x) a). Keep existing tests and edit only this file.
+
+12. Run `raco test tests/45_q4_tests.rkt` from the repo root. Confirm that both new make-inserter cases ran and report the total passed and any failures. Leave all files unchanged.
+
+13. In code/45_q4.rkt, replace only the existing (insert-if-short x lst n) definition. Use make-inserter with a length predicate that checks whether the original list length is strictly less than n, then apply the returned function to lst. Keep a single insert-if-short definition and preserve its behavior.
+
+14. 
