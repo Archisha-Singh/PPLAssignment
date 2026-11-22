@@ -29,3 +29,14 @@ AI has access to question and skills.md files internally.
 14. Run `raco test tests/45_q4_tests.rkt` from the repo root. Confirm that all 12 tests still pass after insert-if-short was refactored to use make-inserter. Report any failures and leave all files unchanged.
 
 15. Read skills/scheme-dev/SKILL.md. In code/45_q4.rkt, add only (print-insert-result) with no arguments. Read x, lst, and n from standard input in that order. Call insert-if-short and print the resulting list with display followed by newline. Print no prompts or labels. Keep the file silent when loaded.
+
+16. In tests/45_q4_tests.rkt, add tests that feed input to print-insert-result and capture its exact output. Check that `7 () 3` prints "(7)\n", `7 () 0` prints "()\n", and `42 ((1 2) (3 4 5) (6) ()) 3` prints "((42 1 2) (3 4 5) (42 6) (42))\n". Keep the existing tests and edit only this test file.
+
+17. Run `raco test tests/45_q4_tests.rkt` from the repo root. Confirm that the three print-insert-result tests ran, and report the total number of tests passed and any failures. Leave all files unchanged.
+
+18. In tests/45_q4_tests.rkt, add two stress tests for insert-if-short. For a list nested 100 levels deep around an empty list, use n = 1 and check that only the innermost empty list becomes '(x). For a flat list of 10000 elements, use n = 10001 and check that x is prepended and all original elements are preserved in order. Generate the inputs programmatically. Edit only the test file.
+
+19. Run `raco test tests/45_q4_tests.rkt` from the repo root. Confirm that the depth-100 and 10,000-element tests both ran. Report the total passed and any failures. Leave all files unchanged.
+
+20. Tidy the indentation, spacing, and comments in code/45_q4.rkt. Preserve all function names, behavior, and exact output. Edit only this file.
+

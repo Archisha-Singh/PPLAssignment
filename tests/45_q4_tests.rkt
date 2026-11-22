@@ -1,6 +1,7 @@
 #lang racket/base
 
 (require rackunit
+         racket/port
          racket/runtime-path)
 
 (define-runtime-path solution-path "../code/45_q4.rkt")
@@ -49,3 +50,41 @@
 (check-equal? ((make-inserter 'x (lambda (length) (= length 0))) '(() a))
               '((x) a)
               "insert into empty nested lists")
+
+(define print-insert-result
+  (parameterize ([current-namespace (module->namespace solution-path)])
+    (eval 'print-insert-result)))
+
+(check-equal? (with-input-from-string "7 () 3"
+                (lambda () (with-output-to-string print-insert-result)))
+              "(7)\n"
+              "input produces insertion into the empty list")
+(check-equal? (with-input-from-string "7 () 0"
+                (lambda () (with-output-to-string print-insert-result)))
+              "()\n"
+              "input with zero threshold leaves the list empty")
+(check-equal? (with-input-from-string "42 ((1 2) (3 4 5) (6) ()) 3"
+                (lambda () (with-output-to-string print-insert-result)))
+              "((42 1 2) (3 4 5) (42 6) (42))\n"
+              "input transforms nested lists and outer list")
+
+(define (nest-empty depth)
+  (if (= depth 0)
+      '()
+      (list (nest-empty (- depth 1)))))
+
+(define (check-innermost-inserted tree depth)
+  (if (= depth 0)
+      (check-equal? tree '(x) "innermost empty list receives insertion")
+      (check-innermost-inserted (car tree) (- depth 1))))
+
+(check-innermost-inserted (insert-if-short 'x (nest-empty 100) 1) 100)
+
+(define (make-sequence start end)
+  (if (= start end)
+      '()
+      (cons start (make-sequence (+ start 1) end))))
+
+(check-equal? (insert-if-short 'x (make-sequence 0 10000) 10001)
+              (cons 'x (make-sequence 0 10000))
+              "prepend to 10000 elements and preserve their order")
