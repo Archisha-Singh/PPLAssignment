@@ -1,3 +1,9 @@
 AI has access to question statement and skills.md
 
 1. Create only tests/45_q3_tests.rkt. Add tests for inorder using an empty tree, a single node, and the tree '(4 (2 () (3 () ())) (6 () ())). Expect '(), '(7) for a single node with value 7, and '(2 3 4 6). Make the test file runnable from the repo root without editing code/45_q3.rkt.
+
+2. Run `racket tests/45_q3_tests.rkt` from the repo root. Report whether all three inorder tests pass and show any errors. Leave all files unchanged.
+
+3. Read skills/scheme-dev/SKILL.md. In code/45_q3.rkt, add only (print-inorder tree). Use the existing inorder helper and print its returned list with display, followed by newline. An empty tree should print (). Keep the file silent when loaded.
+
+4. 

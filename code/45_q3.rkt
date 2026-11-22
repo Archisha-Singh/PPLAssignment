@@ -10,3 +10,8 @@
               (cons (car subtree)
                     (walk (car (cdr (cdr subtree))) suffix)))))
   (walk tree '()))
+
+;; Print the inorder values on one line, including () for an empty tree.
+(define (print-inorder tree)
+  (display (inorder tree))
+  (newline))
