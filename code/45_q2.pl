@@ -60,3 +60,8 @@ generate_equation(Numbers, Equation) :-
     render_expression(LeftTree, LeftText, _),
     render_expression(RightTree, RightText, _),
     format(string(Equation), '~s=~s', [LeftText, RightText]).
+
+% all_equations(+Numbers, ?Equations) returns sorted, unique equation strings.
+all_equations(Numbers, Equations) :-
+    findall(Equation, generate_equation(Numbers, Equation), Generated),
+    sort(Generated, Equations).

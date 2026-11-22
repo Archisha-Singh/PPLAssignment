@@ -68,4 +68,21 @@ test(render_expression_canonical_strings, [forall(member(Tree-Expected, [
     findall(Text, render_expression(Tree, Text, _), Texts),
     assertion(Texts == [Expected]).
 
+test(generate_equation_single_result) :-
+    findall(Equation, generate_equation([2, 4, 8], Equation), Equations),
+    assertion(Equations == ["2*4=8"]).
+
+test(generate_equation_expected_result_on_backtracking) :-
+    findall(Equation, generate_equation([4, 2, 5, 3], Equation), Equations),
+    assertion(memberchk("4*2=5+3", Equations)).
+
+test(generate_equation_empty_list, [fail]) :-
+    generate_equation([], _).
+
+test(generate_equation_singleton_list, [fail]) :-
+    generate_equation([7], _).
+
+test(generate_equation_no_solution, [fail]) :-
+    generate_equation([2, 3, 4], _).
+
 :- end_tests(p2).
