@@ -19,3 +19,12 @@ apply_operator('/', Left, Right, Value) :-
     Right =\= 0,
     0 =:= Left rem Right,
     Value is Left // Right.
+
+% expression(+Numbers, ?Tree, ?Value) enumerates ordered expression trees
+% and their integer values. A single number is a leaf.
+expression([Number], Number, Number).
+expression(Numbers, op(Operator, LeftTree, RightTree), Value) :-
+    equation_split(Numbers, Left, Right),
+    expression(Left, LeftTree, LeftValue),
+    expression(Right, RightTree, RightValue),
+    apply_operator(Operator, LeftValue, RightValue, Value).

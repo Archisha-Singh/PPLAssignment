@@ -8,4 +8,12 @@ AI agent has access to question and skills.md folder.
 
 4. In code/45_q2.pl, implement only apply_operator(Op, Left, Right, Value). Support '+', '-', '*', and '/'. Left and Right are integers and may be negative. For division, succeed only when Right is nonzero and Left is exactly divisible by Right. Return an integer result. Leave the test file alone.
 
-5.
+5. Add PlUnit tests for apply_operator/4 to tests/45_q2_tests.pl. Cover addition, subtraction that produces a negative result, multiplication, exact division with a negative operand, and failure for division by zero and division with a remainder. Keep the existing split tests. Edit only this test file, then run the P2 test suite and report the result.
+
+6. In code/45_q2.pl, implement only expression(Numbers, Tree, Value).
+
+For a singleton list [N], use the integer N as both Tree and Value. For longer lists, use equation_split/3, recursively build an expression for each side, and combine them with apply_operator/4. Represent each binary node as op(Operator, LeftTree, RightTree).
+
+On backtracking, enumerate every valid expression tree using all the numbers in their original order. Fail for an empty list. Leave rendering and tests for separate prompts.
+
+7.
