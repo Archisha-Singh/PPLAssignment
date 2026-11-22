@@ -82,4 +82,6 @@ Leave the solution and report unchanged. Stop after writing the test file.
 
 31. Tidy the indentation, spacing, and comments in code/45_q1.pl. Keep the logic and exact output unchanged.
 
-32. 
+32. Run `swipl -q -s tests/45_q1_tests.pl -g run_tests -t halt`. Report which tests passed and show any failures or warnings. Leave all files unchanged.
+
+33. perform final clean ups and commits.
