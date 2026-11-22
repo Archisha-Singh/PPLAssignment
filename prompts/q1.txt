@@ -12,4 +12,7 @@ Enumerate all candidates on backtracking before applying any clues. Keep the fil
 
 4.Use SWI-Prolog 9.x to test clue(1, Solution) in code/45_q1.pl with three complete candidate assignments. Check that it succeeds when a friend other than Dana has the AI project and works outside research. Check that it fails when the AI project belongs to Dana even though she works outside research, and when the AI project belongs to someone in research other than Dana. 
 
-5.
+5.add only the clue(2, Solution) clause, directly after clue 1.
+Clue 2 succeeds exactly when 'Alex' works in a department other than development and has a favorite language other than 'c++'.
+
+6.
