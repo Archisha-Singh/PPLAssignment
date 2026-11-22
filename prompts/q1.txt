@@ -4,5 +4,10 @@ Prereqs: Opened the ai agent in the same folder as that with the question statem
 Departments: research, development, design, testing
 Languages: python, java, 'c++', javascript
 Projects: 'AI', web, embedded, data
-
 Enumerate all candidates on backtracking before applying any clues. Keep the file silent when loaded. Stop after implementing this predicate.
+
+2. Test candidate_assignment/1 in code/45_q1.pl using SWI-Prolog 9.x. Collect all generated candidates on backtracking and check that both the total count and the distinct count are 13824. Report the two counts and whether the check passed. Leave the files unchanged.
+
+3. Solution is a fully filled-in list of p(Name, Dept, Lang, Project) terms. Clue 1 succeeds exactly when the person whose project is 'AI' works in a department other than research and is someone other than 'Dana'.Stop after adding this clause. Remember to push after each change
+
+4.
