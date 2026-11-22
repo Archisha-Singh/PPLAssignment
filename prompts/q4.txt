@@ -4,4 +4,8 @@ AI has access to question and skills.md files internally.
 
 2. Create tests/45_q4_tests.rkt using the same test-loading approach as tests/45_q3_tests.rkt. Test that my-length returns 0 for '(), 3 for '(a b c), and 3 for '(a (b c) ()). Edit only the Q4 test file. We'll run it separately.
 
-3. 
+3. Run `racket tests/45_q4_tests.rkt` from the repo root. Report whether all three my-length tests pass and show any errors. Leave all files unchanged.
+
+4. Read skills/scheme-dev/SKILL.md. In code/45_q4.rkt, add only (my-map f lst). Use recursion to apply f once to each top-level element and return the results in the original order. Pass nested lists to f as single elements. Return '() for an empty list. Use only the assignment's allowed built-ins.
+
+5. 
