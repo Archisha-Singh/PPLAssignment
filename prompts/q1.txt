@@ -44,4 +44,7 @@ Report the result for each case
 
 19. implement only count_solutions(Active, N) for P1.b.Active is a list of clue numbers. Use candidate_assignment/1 to enumerate candidates and clue/2 to check every clue listed in Active against each fully filled-in candidate. Ignore omitted clues completely. An empty Active list should count every candidate. Use findall/3 or aggregate_all/3 to count the matching candidates and unify N with that count. Keep the file silent when loaded. Stop after implementing count_solutions/2. Testing and reporting the count for clues 1 through 8 are separate prompts.
 
-20. 
+20. Test count_solutions/2 in code/45_q1.pl using SWI-Prolog 9.x. 1. With Active = [], expect N = 13824 because no clues are applied. 2. With Active = [1], expect N = 7776 because only clue 1 is applied. Report the actual count and whether it matched for each case.
+
+21. Read and follow skills/prolog-dev/SKILL.md. Run the existing count_solutions([1,2,3,4,5,6,7,8], N) in code/45_q1.pl using SWI-Prolog 9.x. Record the observed value of N in P1_REPORT.md and explain in one sentence what it tells us about whether clues 1–8 determine a unique solution. Only edit P1_REPORT.md.
+
