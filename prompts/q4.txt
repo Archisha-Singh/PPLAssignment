@@ -8,4 +8,8 @@ AI has access to question and skills.md files internally.
 
 4. Read skills/scheme-dev/SKILL.md. In code/45_q4.rkt, add only (my-map f lst). Use recursion to apply f once to each top-level element and return the results in the original order. Pass nested lists to f as single elements. Return '() for an empty list. Use only the assignment's allowed built-ins.
 
-5. 
+5. In tests/45_q4_tests.rkt, add my-map tests for an empty list, incrementing '(1 2 3) to get '(2 3 4), and mapping my-length over '((a b) () (c)) to get '(2 0 1). Keep the existing tests and edit only this file.
+
+6. Run `racket tests/45_q4_tests.rkt` from the repo root. Report whether the my-map and my-length tests pass. Include any errors and leave all files unchanged.
+
+7. Read skills/scheme-dev/SKILL.md. In code/45_q4.rkt, add only (insert-if-short x lst n) using my-length and my-map. Recursively visit every list, including the outer list and empty sublists. Prepend x when the original list has fewer than n elements. Preserve the order of existing elements, leave atoms unchanged, and visit only the original elements during recursion.

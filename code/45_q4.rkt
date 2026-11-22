@@ -14,3 +14,17 @@
       '()
       (cons (f (car lst))
             (my-map f (cdr lst)))))
+
+;; Recursively transform each original sublist, then insert x when its
+;; original outer length is less than n.
+(define (insert-if-short x lst n)
+  (let ((transformed
+         (my-map
+          (lambda (element)
+            (if (or (pair? element) (null? element))
+                (insert-if-short x element n)
+                element))
+          lst)))
+    (if (< (my-length lst) n)
+        (cons x transformed)
+        transformed)))
