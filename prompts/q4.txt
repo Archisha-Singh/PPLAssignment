@@ -1,0 +1,7 @@
+AI has access to question and skills.md files internally.
+
+1. Read skills/scheme-dev/SKILL.md. In code/45_q4.rkt, use #lang racket/base and implement only (my-length lst). Count the outer elements of the list recursively. An empty list has length 0, and each sublist counts as one element, including an empty sublist. Use only the assignment's allowed built-ins. Keep the file silent when loaded.
+
+2. Create tests/45_q4_tests.rkt using the same test-loading approach as tests/45_q3_tests.rkt. Test that my-length returns 0 for '(), 3 for '(a b c), and 3 for '(a (b c) ()). Edit only the Q4 test file. We'll run it separately.
+
+3. 

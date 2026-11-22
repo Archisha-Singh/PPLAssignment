@@ -54,4 +54,4 @@ AI has access to question statement and skills.md
 
 27. Read skills/scheme-dev/SKILL.md. In code/45_q3.rkt, add only the top-level function (print-height-and-leaves tree). Use the existing tree-height and leaf-count helpers to build a two-element list, display it, and print a newline. An empty tree should print (0 0). Keep the file silent when loaded and leave the test file unchanged.
 
-28. 
+28. clean formatting then rerun the tests and report results.
