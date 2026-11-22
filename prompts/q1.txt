@@ -1,0 +1,8 @@
+Prereqs: Opened the ai agent in the same folder as that with the question statement and skills.md files.
+
+1. A candidate is a list of four p(Name, Dept, Lang, Project) terms in this exact order: 'Alex', 'Ben', 'Carla', 'Dana'. Use each value exactly once per category:
+Departments: research, development, design, testing
+Languages: python, java, 'c++', javascript
+Projects: 'AI', web, embedded, data
+
+Enumerate all candidates on backtracking before applying any clues. Keep the file silent when loaded. Stop after implementing this predicate.
