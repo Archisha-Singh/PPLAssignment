@@ -1,5 +1,7 @@
 :- use_module(library(lists), [append/3]).
 
+% Expression generation and evaluation
+
 % equation_split(+Numbers, ?Left, ?Right) enumerates splits into a nonempty
 % prefix and suffix, starting with the shortest prefix.
 equation_split(Numbers, Left, Right) :-
@@ -33,6 +35,8 @@ expression(Numbers, op(Operator, LeftTree, RightTree), Value) :-
     expression(Right, RightTree, RightValue),
     apply_operator(Operator, LeftValue, RightValue, Value).
 
+% Canonical rendering
+
 % render_expression(+Tree, ?Text, ?Precedence) produces a canonical string.
 % Precedence is 1 for + and -, 2 for * and /, and 3 for integer leaves.
 % Right operands of equal precedence need parentheses because operators
@@ -57,7 +61,13 @@ render_expression(op(Operator, LeftTree, RightTree), Text, Precedence) :-
     ->  format(string(RightOperand), '(~s)', [RightText])
     ;   RightOperand = RightText
     ),
-    format(string(Text), '~s~a~s', [LeftOperand, Operator, RightOperand]).
+    format(
+        string(Text),
+        '~s~a~s',
+        [LeftOperand, Operator, RightOperand]
+    ).
+
+% Equation queries
 
 % generate_equation(+Numbers, ?Equation) renders each split whose left and
 % right expression trees evaluate to the same integer.

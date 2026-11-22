@@ -1,0 +1,3 @@
+AI has access to question statement and skills.md
+
+1. Create only tests/45_q3_tests.rkt. Add tests for inorder using an empty tree, a single node, and the tree '(4 (2 () (3 () ())) (6 () ())). Expect '(), '(7) for a single node with value 7, and '(2 3 4 6). Make the test file runnable from the repo root without editing code/45_q3.rkt.
