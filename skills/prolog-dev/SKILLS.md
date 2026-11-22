@@ -12,7 +12,9 @@ Use SWI-Prolog 9.x. Work on one predicate, one test file, or one review per prom
 - Use descriptive predicate names and meaningful variable names.
 - Describe when each predicate succeeds and which arguments should be supplied.
 - Use only the permitted libraries: `lists`, `apply`, `yall`, and `aggregate`.
-- Avoid `assert`, `retract`, global variables, initialization directives, and calls to `halt/0` in submitted code.
+- Do not use `assert`, `retract`, or global variables such as `b_setval/2` and `nb_setval/2`.
+- Omit initialization directives and calls to `halt/0` in submitted code.
+- Keep submitted files silent on load. Print only the output specified by the assignment.
 
 ## Running and testing
 

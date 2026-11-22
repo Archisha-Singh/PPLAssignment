@@ -1,5 +1,7 @@
 :- use_module(library(lists), [member/2, permutation/2]).
 
+% Candidate generation
+
 % candidate_assignment(?Solution) succeeds for each assignment that uses
 % every department, language, and project once, before checking any clues.
 candidate_assignment([
@@ -15,8 +17,9 @@ candidate_assignment([
     permutation(['AI', web, embedded, data],
                 [AlexProject, BenProject, CarlaProject, DanaProject]).
 
-% clue(1, +Solution) checks that the AI project belongs to someone other than
-% Dana who works outside research.
+% Clue checks for fully instantiated candidates
+
+% clue(1, +Solution) requires the AI fan to work outside research and excludes Dana.
 clue(1, Solution) :-
     member(p(Name, Dept, _, 'AI'), Solution),
     Name \= 'Dana',
@@ -58,19 +61,25 @@ clue(8, Solution) :-
     member(p(_, research, Lang, data), Solution),
     Lang \= javascript.
 
+% Solution counting and output
+
 % count_solutions(+Active, ?N) counts candidates satisfying every listed clue.
 count_solutions(Active, N) :-
-    findall(Solution,
-            ( candidate_assignment(Solution),
-              forall(member(Number, Active), clue(Number, Solution))
-            ),
-            Solutions),
+    findall(
+        Solution,
+        (   candidate_assignment(Solution),
+            forall(member(Number, Active), clue(Number, Solution))
+        ),
+        Solutions
+    ),
     length(Solutions, N).
 
 % main/0 prints the first assignment that satisfies clues 1 through 8.
 main :-
-    once(( candidate_assignment(Solution),
-           forall(between(1, 8, Number), clue(Number, Solution))
+    once((   candidate_assignment(Solution),
+             forall(between(1, 8, Number), clue(Number, Solution))
          )),
-    forall(member(p(Name, Dept, Lang, Project), Solution),
-           format('~a = [~a, ~a, ~a]~n', [Name, Dept, Lang, Project])).
+    forall(
+        member(p(Name, Dept, Lang, Project), Solution),
+        format('~a = [~a, ~a, ~a]~n', [Name, Dept, Lang, Project])
+    ).

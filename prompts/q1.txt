@@ -52,4 +52,13 @@ Report the result for each case
 
 23. implement only main/0 for P1.a. Use candidate_assignment/1 and clue/2 to find one assignment satisfying clues 1 through 8. Print exactly four lines in Alex, Ben, Carla, Dana order, with each line formatted as Name = [Dept, Lang, Project]. Print the atom values without quotes, including AI and c++, and include the spaces shown in the format. Derive the assignment from the clues. Stop after implementing main/0.
 
-24.
+24. Run `swipl -q -f code/45_q1.pl -g main -t halt` and verify that it prints exactly four lines in Alex, Ben, Carla, Dana order. Each line must use the format `Name = [Dept, Lang, Project]` with the spaces shown and unquoted atom values. Check that the printed assignment uses each value exactly once per category and satisfies clues 1–8. Report the output and any discrepancies. Leave all files unchanged.
+
+25. Load code/45_q1.pl in SWI-Prolog 9.x and run count_solutions([1,2,3,4,5,6,7,8,9], N). Verify that N = 1. Report the actual count and whether the check passed.
+
+26. Diagnose the failed uniqueness check for P1.c in code/45_q1.pl. Enumerate the assignments that satisfy clues 1–8 and check which of those pass clue 9. Report the count before and after applying clue 9, whether those counts agree with count_solutions/2, and why the current clue does not leave exactly one solution. Leave all files unchanged.
+
+27. `onstraints: no assert, retract or global variables (b_setval, nb_setval). Allowed libraries: lists,
+apply, yall, aggregate. Do not print anything other than what is specified. clean formatting and ensure fitting constraints. Clean up and recheck formatting
+
+28. Update only P1_REPORT.md for P1.b. Record the verified result count_solutions([1,2,3,4,5,6,7,8], 3) and explain that the original eight clues allow three valid assignments, so they do not determine a unique solution. Preserve any unrelated content in the report.
