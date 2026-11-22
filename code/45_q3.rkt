@@ -43,3 +43,11 @@
     (if (null? remaining)
         values
         (restore-order (cdr remaining) (cons (car remaining) values)))))
+
+;; Print inorder, preorder, and postorder on separate lines.
+(define (print-all-traversals tree)
+  (print-inorder tree)
+  (display (preorder tree))
+  (newline)
+  (display (postorder tree))
+  (newline))

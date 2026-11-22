@@ -38,3 +38,13 @@
 (check-equal? (preorder '(4 (2 () (3 () ())) (6 () ())))
               '(4 2 3 6)
               "preorder tree with both subtrees")
+
+(define postorder
+  (parameterize ([current-namespace (module->namespace solution-path)])
+    (eval 'postorder)))
+
+(check-equal? (postorder '()) '() "postorder empty tree")
+(check-equal? (postorder '(7 () ())) '(7) "postorder single node")
+(check-equal? (postorder '(4 (2 () (3 () ())) (6 () ())))
+              '(3 2 6 4)
+              "postorder tree with both subtrees")
