@@ -67,6 +67,10 @@
                 (lambda () (with-output-to-string print-insert-result)))
               "((42 1 2) (3 4 5) (42 6) (42))\n"
               "input transforms nested lists and outer list")
+(check-equal? (with-input-from-string "0 (((1) 2) (3) ((4 5 6) ())) 3"
+                (lambda () (with-output-to-string print-insert-result)))
+              "((0 (0 1) 2) (0 3) (0 (4 5 6) (0)))\n"
+              "input transforms multiple nesting levels")
 
 (define (nest-empty depth)
   (if (= depth 0)

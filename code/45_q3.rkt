@@ -2,14 +2,18 @@
 
 ;; Return the node values in left–root–right order.
 (define (inorder tree)
-  ;; An empty subtree leaves the suffix unchanged.
-  (define (walk subtree suffix)
+  ;; Copy values from first, followed by the values in rest.
+  (define (join first rest)
+    (if (null? first)
+        rest
+        (cons (car first) (join (cdr first) rest))))
+  ;; Combine the left traversal, root value, and right traversal in order.
+  (define (walk subtree)
     (if (null? subtree)
-        suffix
-        (walk (car (cdr subtree))
-              (cons (car subtree)
-                    (walk (car (cdr (cdr subtree))) suffix)))))
-  (walk tree '()))
+        '()
+        (join (walk (car (cdr subtree)))
+              (cons (car subtree) (walk (car (cdr (cdr subtree))))))))
+  (walk tree))
 
 ;; Print the inorder values on one line, including () for an empty tree.
 (define (print-inorder tree)

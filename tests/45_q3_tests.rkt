@@ -101,3 +101,43 @@
                   (print-height-and-leaves '(4 (2 () (3 () ())) (6 () ())))))
               "(3 2)\n"
               "height and leaves output for a tree with both subtrees")
+
+(define balanced-tree '(4 (2 (1 () ()) (3 () ())) (6 (5 () ()) (7 () ()))))
+(define right-only-tree '(1 () (2 () (3 () ()))))
+(define symbol-tree '(a (b () ()) (c () ())))
+
+(check-equal? (with-output-to-string (lambda () (print-inorder balanced-tree)))
+              "(1 2 3 4 5 6 7)\n"
+              "balanced tree inorder output")
+(check-equal? (with-output-to-string (lambda () (print-inorder right-only-tree)))
+              "(1 2 3)\n"
+              "right-only tree inorder output")
+(check-equal? (with-output-to-string (lambda () (print-inorder symbol-tree)))
+              "(b a c)\n"
+              "symbol tree inorder output")
+
+(check-equal? (with-output-to-string
+                (lambda () (print-all-traversals balanced-tree)))
+              "(1 2 3 4 5 6 7)\n(4 2 1 3 6 5 7)\n(1 3 2 5 7 6 4)\n"
+              "balanced tree traversal output")
+(check-equal? (with-output-to-string
+                (lambda () (print-all-traversals right-only-tree)))
+              "(1 2 3)\n(1 2 3)\n(3 2 1)\n"
+              "right-only tree traversal output")
+(check-equal? (with-output-to-string
+                (lambda () (print-all-traversals symbol-tree)))
+              "(b a c)\n(a b c)\n(b c a)\n"
+              "symbol tree traversal output")
+
+(check-equal? (with-output-to-string
+                (lambda () (print-height-and-leaves balanced-tree)))
+              "(3 4)\n"
+              "balanced tree height and leaves output")
+(check-equal? (with-output-to-string
+                (lambda () (print-height-and-leaves right-only-tree)))
+              "(3 1)\n"
+              "right-only tree height and leaves output")
+(check-equal? (with-output-to-string
+                (lambda () (print-height-and-leaves symbol-tree)))
+              "(2 2)\n"
+              "symbol tree height and leaves output")
