@@ -66,3 +66,11 @@ count_solutions(Active, N) :-
             ),
             Solutions),
     length(Solutions, N).
+
+% main/0 prints the first assignment that satisfies clues 1 through 8.
+main :-
+    once(( candidate_assignment(Solution),
+           forall(between(1, 8, Number), clue(Number, Solution))
+         )),
+    forall(member(p(Name, Dept, Lang, Project), Solution),
+           format('~a = [~a, ~a, ~a]~n', [Name, Dept, Lang, Project])).

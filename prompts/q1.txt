@@ -48,3 +48,8 @@ Report the result for each case
 
 21. Read and follow skills/prolog-dev/SKILL.md. Run the existing count_solutions([1,2,3,4,5,6,7,8], N) in code/45_q1.pl using SWI-Prolog 9.x. Record the observed value of N in P1_REPORT.md and explain in one sentence what it tells us about whether clues 1–8 determine a unique solution. Only edit P1_REPORT.md.
 
+22. Load code/45_q1.pl in SWI-Prolog 9.x and run count_solutions([1,2,3,4,5,6,7,8], N). In P1_REPORT.md, record the value of N and explain in one sentence what it means for the puzzle's uniqueness. Edit only P1_REPORT.md.
+
+23. implement only main/0 for P1.a. Use candidate_assignment/1 and clue/2 to find one assignment satisfying clues 1 through 8. Print exactly four lines in Alex, Ben, Carla, Dana order, with each line formatted as Name = [Dept, Lang, Project]. Print the atom values without quotes, including AI and c++, and include the spaces shown in the format. Derive the assignment from the clues. Stop after implementing main/0.
+
+24.
