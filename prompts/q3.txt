@@ -12,4 +12,10 @@ AI has access to question statement and skills.md
 
 6. Read skills/scheme-dev/SKILL.md. In code/45_q3.rkt, add only (preorder tree). Return the values in root, left subtree, right subtree order. Return '() for an empty tree. Use only the assignment's allowed built-ins and keep the file silent when loaded.
 
-7. 
+7. In tests/45_q3_tests.rkt, add tests for preorder. Check that the empty tree returns '(), a single node with value 7 returns '(7), and '(4 (2 () (3 () ())) (6 () ())) returns '(4 2 3 6). Keep the existing tests and edit only this test file.
+
+8. Run `racket tests/45_q3_tests.rkt` from the repo root. Report whether the preorder tests and the existing tests pass. Leave all files unchanged.
+
+9.Read skills/scheme-dev/SKILL.md. In code/45_q3.rkt, add only (postorder tree). Return the values in left subtree, right subtree, root order. Return '() for an empty tree. Use only the assignment's allowed built-ins and keep the file silent when loaded.
+
+10. In tests/45_q3_tests.rkt, add tests for postorder. Check that '() returns '(), '(7 () ()) returns '(7), and '(4 (2 () (3 () ())) (6 () ())) returns '(3 2 6 4). Keep the existing tests and edit only this test file.

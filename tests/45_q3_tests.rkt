@@ -28,3 +28,13 @@
                 (lambda () (print-inorder '(4 (2 () (3 () ())) (6 () ())))))
               "(2 3 4 6)\n"
               "tree with both subtrees output")
+
+(define preorder
+  (parameterize ([current-namespace (module->namespace solution-path)])
+    (eval 'preorder)))
+
+(check-equal? (preorder '()) '() "preorder empty tree")
+(check-equal? (preorder '(7 () ())) '(7) "preorder single node")
+(check-equal? (preorder '(4 (2 () (3 () ())) (6 () ())))
+              '(4 2 3 6)
+              "preorder tree with both subtrees")
