@@ -1,0 +1,5 @@
+AI agent has access to question and skills.md folder.
+
+1. In code/45_q2.pl, implement only equation_split(Numbers, Left, Right). Each answer represents one possible position for the equals sign. On backtracking, return every split into a nonempty prefix and a nonempty suffix, preserving the original order. Fail for lists shorter than two elements.
+
+2. 
