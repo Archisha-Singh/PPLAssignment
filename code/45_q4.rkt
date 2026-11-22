@@ -32,3 +32,11 @@
 ;; Insert x into every list whose original outer length is less than n.
 (define (insert-if-short x lst n)
   ((make-inserter x (lambda (original-length) (< original-length n))) lst))
+
+;; Read x, lst, and n, then print the transformed list on one line.
+(define (print-insert-result)
+  (let ((x (read))
+        (lst (read))
+        (n (read)))
+    (display (insert-if-short x lst n))
+    (newline)))

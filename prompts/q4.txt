@@ -26,4 +26,6 @@ AI has access to question and skills.md files internally.
 
 13. In code/45_q4.rkt, replace only the existing (insert-if-short x lst n) definition. Use make-inserter with a length predicate that checks whether the original list length is strictly less than n, then apply the returned function to lst. Keep a single insert-if-short definition and preserve its behavior.
 
-14. 
+14. Run `raco test tests/45_q4_tests.rkt` from the repo root. Confirm that all 12 tests still pass after insert-if-short was refactored to use make-inserter. Report any failures and leave all files unchanged.
+
+15. Read skills/scheme-dev/SKILL.md. In code/45_q4.rkt, add only (print-insert-result) with no arguments. Read x, lst, and n from standard input in that order. Call insert-if-short and print the resulting list with display followed by newline. Print no prompts or labels. Keep the file silent when loaded.
