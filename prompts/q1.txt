@@ -28,4 +28,4 @@ Report the result for each case
 
 11. add clue 5. Clue 5 succeeds exactly when the friend whose favorite language is java works in the design department.
 
-12. test clue 4 with 2 test cases. expect 1 success, 1 failures.
+12. test clue 5 with 2 test cases. expect 1 success, 1 failures.

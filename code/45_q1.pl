@@ -40,3 +40,9 @@ clue(4, Solution) :-
 % clue(5, +Solution) checks that the friend who prefers Java works in design.
 clue(5, Solution) :-
     member(p(_, design, java, _), Solution).
+
+% clue(6, +Solution) checks Carla's department and project preference.
+clue(6, Solution) :-
+    member(p('Carla', Dept, _, Project), Solution),
+    Project \= embedded,
+    Dept \= development.
