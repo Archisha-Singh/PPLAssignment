@@ -24,6 +24,14 @@ Run P1 with:
 
 To test an individual predicate, pass its goal with `-g 'GOAL'` and select the corresponding `.pl` file with `-f`. Check the assignment examples and relevant edge cases. Report which tests were run and what they returned.
 
+## P2 arithmetic equations
+
+- Split the input into a nonempty prefix and suffix at `=`. Use every input number exactly once and in order. Use binary `+`, `-`, `*`, and `/` only.
+- Evaluate expression trees directly with integer arithmetic. Intermediate results may be negative. At every division, check for a nonzero divisor and zero remainder before taking the quotient. Never parse the rendered string to evaluate it.
+- Render decimal numbers and operators as an SWI-Prolog string with no spaces. `*` and `/` bind more tightly than `+` and `-`. All operators are left-associative. Parenthesize a left child only when it has lower precedence, and a right child when it has equal or lower precedence. Leave number leaves unparenthesized.
+- `generate_equation/2` must fail cleanly when no equation exists, including empty and singleton inputs. Use `sort/2` to produce the ordered, duplicate-free list in `all_equations/2`. `count_equations/2` counts that list.
+- Keep P2 predicates silent. For checks, `[4,2,5,3]` yields seven equations, `[2,3,4]` yields none, and `[2,4,8]` yields only `"2*4=8"`.
+
 ## Self-review before answering
 
 - Check exact predicate names, argument counts, and output formats.

@@ -2,4 +2,10 @@ AI agent has access to question and skills.md folder.
 
 1. In code/45_q2.pl, implement only equation_split(Numbers, Left, Right). Each answer represents one possible position for the equals sign. On backtracking, return every split into a nonempty prefix and a nonempty suffix, preserving the original order. Fail for lists shorter than two elements.
 
-2. 
+2. Test equation_split/3 in code/45_q2.pl. Check that [1,2,3] gives exactly the splits [1] | [2,3] and [1,2] | [3] on backtracking, and that [] and [1] give no splits. Report the results without editing files.
+
+3. Create tests/45_q2_tests.pl using SWI-Prolog PlUnit. Load ../code/45_q2.pl relative to the test file. Test that equation_split/3 returns both nonempty splits of [1,2,3] exactly once, gives one split for [1,2], and fails for [] and [1]. Only edit the test file. Use swipl -q -s tests/45_q2_tests.pl -g run_tests -t halt to run the tests in the future when prompted to test after implementing code.
+
+4. In code/45_q2.pl, implement only apply_operator(Op, Left, Right, Value). Support '+', '-', '*', and '/'. Left and Right are integers and may be negative. For division, succeed only when Right is nonzero and Left is exactly divisible by Right. Return an integer result. Leave the test file alone.
+
+5.
