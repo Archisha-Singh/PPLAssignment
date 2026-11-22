@@ -36,4 +36,8 @@ Report the result for each case
 
 15. add clue 7. Clue 7 succeeds exactly when 'Dana' prefers a language other than java and works in either research or testing. The language restriction applies to both departments.
 
-16. 
+16. test clue 7, five cases, 2 success 3 failures
+
+17. add clue 8. Clue 8 succeeds exactly when the friend who prefers the data project works in research and has a favorite language other than javascript. Both conditions must hold for the same friend.
+
+18. test clue 8. 3 cases, 1 success 2 failures.

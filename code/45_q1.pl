@@ -52,3 +52,8 @@ clue(7, Solution) :-
     member(p('Dana', Dept, Lang, _), Solution),
     Lang \= java,
     member(Dept, [research, testing]).
+
+% clue(8, +Solution) checks the department and language of the data fan.
+clue(8, Solution) :-
+    member(p(_, research, Lang, data), Solution),
+    Lang \= javascript.
