@@ -35,4 +35,27 @@ test(apply_operator_division_by_zero, [fail]) :-
 test(apply_operator_division_with_remainder, [fail]) :-
     apply_operator('/', 7, 3, _).
 
+test(expression_empty_list, [fail]) :-
+    expression([], _, _).
+
+test(expression_singleton) :-
+    findall(Tree-Value, expression([7], Tree, Value), Expressions),
+    assertion(Expressions == [7-7]).
+
+test(expression_distinct_addition_trees, [forall(member(Expected, [
+    op('+', op('+', 1, 2), 3),
+    op('+', 1, op('+', 2, 3))
+]))]) :-
+    assertion(expression([1, 2, 3], Expected, 6)).
+
+test(expression_exact_division) :-
+    findall(Value, expression([8, 2], op('/', 8, 2), Value), Values),
+    assertion(Values == [4]).
+
+test(expression_division_with_remainder, [fail]) :-
+    expression([7, 2], op('/', _, _), _).
+
+test(expression_division_by_zero, [fail]) :-
+    expression([8, 0], op('/', _, _), _).
+
 :- end_tests(p2).

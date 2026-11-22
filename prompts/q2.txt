@@ -16,4 +16,14 @@ For a singleton list [N], use the integer N as both Tree and Value. For longer l
 
 On backtracking, enumerate every valid expression tree using all the numbers in their original order. Fail for an empty list. Leave rendering and tests for separate prompts.
 
-7.
+7.In tests/45_q2_tests.pl, add PlUnit tests for expression/3. Check that [] fails, [7] gives tree 7 and value 7, and [1,2,3] generates both (1+2)+3 and 1+(2+3) as distinct op/3 trees with value 6. Check that [8,2] permits the division tree with value 4, while [7,2] and [8,0] produce no division tree. Keep the existing tests and edit only this file.
+
+8.Run `swipl -q -s tests/45_q2_tests.pl -g run_tests -t halt`. Report the results, including any failures or warnings. Leave all files unchanged.
+
+9.Read skills/prolog-dev/SKILL.md. In code/45_q2.pl, implement only render_expression(Tree, Text, Precedence). Tree is an integer or op(Operator, LeftTree, RightTree). Return an SWI-Prolog string with no spaces.
+
+Multiplication and division bind tighter than addition and subtraction. Parenthesize a left child only if its precedence is lower than the parent's. Parenthesize a right child if its precedence is lower than or equal to the parent's. Never parenthesize integer leaves. For example, the two addition trees should render as "1+2+3" and "1+(2+3)".
+
+Keep the existing predicates and tests unchanged.
+
+10.
