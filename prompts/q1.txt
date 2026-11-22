@@ -29,3 +29,11 @@ Report the result for each case
 11. add clue 5. Clue 5 succeeds exactly when the friend whose favorite language is java works in the design department.
 
 12. test clue 5 with 2 test cases. expect 1 success, 1 failures.
+
+13. add clue 6. Clue 6 succeeds exactly when 'Carla' prefers a project other than embedded and works in a department other than development.
+
+14. test clue 6, three cases, 1 success 2 failures
+
+15. add clue 7. Clue 7 succeeds exactly when 'Dana' prefers a language other than java and works in either research or testing. The language restriction applies to both departments.
+
+16. 
