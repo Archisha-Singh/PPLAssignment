@@ -72,3 +72,8 @@
         (if (and (null? left) (null? right))
             1
             (+ (leaf-count left) (leaf-count right))))))
+
+;; Print the tree height and leaf count as a two-element list.
+(define (print-height-and-leaves tree)
+  (display (list (tree-height tree) (leaf-count tree)))
+  (newline))

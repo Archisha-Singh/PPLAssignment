@@ -47,3 +47,11 @@ AI has access to question statement and skills.md
 23. Run `racket tests/45_q3_tests.rkt` from the repo root. Report whether the print-height-and-leaves tests and the rest of the suite pass. Include any errors. Leave all files unchanged.
 
 24. Tidy the indentation, spacing, and comments in code/45_q3.rkt. Preserve all function names, behavior, and exact output. Edit only this file.
+
+25. From the repo root, run `racket code/45_q3.rkt` and confirm it exits successfully with no output. Then run `racket tests/45_q3_tests.rkt` and report any failures or warnings. Leave all files unchanged.
+
+26. Inspect code/45_q3.rkt and tests/45_q3_tests.rkt. Find why the tests report print-height-and-leaves as undefined. Check whether the function is defined at the top level with that exact name and how the test file loads it. Report the cause. Leave both files unchanged.
+
+27. Read skills/scheme-dev/SKILL.md. In code/45_q3.rkt, add only the top-level function (print-height-and-leaves tree). Use the existing tree-height and leaf-count helpers to build a two-element list, display it, and print a newline. An empty tree should print (0 0). Keep the file silent when loaded and leave the test file unchanged.
+
+28. 
