@@ -16,7 +16,7 @@
   (display (inorder tree))
   (newline))
 
-;; Return the values of tree in root, left, right order.
+;; Return the node values in root–left–right order.
 (define (preorder tree)
   ;; Collect values in reverse order while visiting each left subtree first.
   (define (walk subtree reversed-values)
@@ -25,13 +25,13 @@
         (walk (caddr subtree)
               (walk (cadr subtree)
                     (cons (car subtree) reversed-values)))))
-  (let restore-order ((remaining (walk tree '()))
-                      (values '()))
+  (let restore-order ([remaining (walk tree '())]
+                      [values '()])
     (if (null? remaining)
         values
         (restore-order (cdr remaining) (cons (car remaining) values)))))
 
-;; Return the values of tree in left, right, root order.
+;; Return the node values in left–right–root order.
 (define (postorder tree)
   ;; Accumulate both subtrees left first, then prepend the root value.
   (define (walk subtree reversed-values)
@@ -40,8 +40,8 @@
         (cons (car subtree)
               (walk (caddr subtree)
                     (walk (cadr subtree) reversed-values)))))
-  (let restore-order ((remaining (walk tree '()))
-                      (values '()))
+  (let restore-order ([remaining (walk tree '())]
+                      [values '()])
     (if (null? remaining)
         values
         (restore-order (cdr remaining) (cons (car remaining) values)))))
@@ -67,8 +67,8 @@
 (define (leaf-count tree)
   (if (null? tree)
       0
-      (let ((left (cadr tree))
-            (right (caddr tree)))
+      (let ([left (cadr tree)]
+            [right (caddr tree)])
         (if (and (null? left) (null? right))
             1
             (+ (leaf-count left) (leaf-count right))))))
