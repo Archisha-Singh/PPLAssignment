@@ -97,4 +97,12 @@ test(all_equations_single_result, true(Equations == ["2*4=8"])) :-
 test(all_equations_no_solution, true(Equations == [])) :-
     all_equations([2, 3, 4], Equations).
 
+test(count_equations_expected_totals, [forall(member(Numbers-Expected, [
+    [4, 2, 5, 3]-7,
+    [2, 4, 8]-1,
+    [2, 3, 4]-0
+]))]) :-
+    count_equations(Numbers, Count),
+    assertion(Count == Expected).
+
 :- end_tests(p2).

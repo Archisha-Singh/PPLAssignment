@@ -44,4 +44,12 @@ Keep the existing predicates and tests unchanged.
 
 18.Read skills/prolog-dev/SKILL.md. In code/45_q2.pl, implement only count_equations(Numbers, N). Use all_equations/2 and unify N with the length of its result. If there are no equations, N should be 0. Leave the test file unchanged.
 
-19.
+19.In tests/45_q2_tests.pl, add PlUnit tests that check count_equations/2 returns 7 for [4,2,5,3], 1 for [2,4,8], and 0 for [2,3,4]. Keep the existing tests and edit only this test file.
+
+20. Run `swipl -q -s tests/45_q2_tests.pl -g run_tests -t halt`. Report whether the count_equations/2 tests and the rest of the suite pass. Include any failures or warnings. Leave all files unchanged.
+
+21.Read skills/prolog-dev/SKILL.md. Tidy the indentation, spacing, and comments in code/45_q2.pl. Preserve predicate names, logic, and exact output. Edit only this file.
+
+22.Run `swipl -q -s tests/45_q2_tests.pl -g run_tests -t halt`. Report the test result and any warnings. Leave all files unchanged.
+
+23. 
