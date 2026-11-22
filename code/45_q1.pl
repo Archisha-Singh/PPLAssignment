@@ -31,3 +31,8 @@ clue(2, Solution) :-
 % clue(3, +Solution) checks that the friend in testing prefers Python.
 clue(3, Solution) :-
     member(p(_, testing, python, _), Solution).
+
+% clue(4, +Solution) checks that Ben prefers web and works outside testing.
+clue(4, Solution) :-
+    member(p('Ben', Dept, _, web), Solution),
+    Dept \= testing.

@@ -19,3 +19,9 @@ Clue 2 succeeds exactly when 'Alex' works in a department other than development
 Report the result for each case
 
 7.add only the clue(3, Solution) clause, directly after clue 2.Clue 3 succeeds exactly when the friend in the testing department has python as their favorite language.
+
+8. test clue 3 now. use 2 candidate assignments, reproduce an expected success and an expected failure. report results
+
+9. add clue 4 now. Clue 4 succeeds exactly when 'Ben' prefers the web project and works in a department other than testing.
+
+10. 
