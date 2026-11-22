@@ -52,4 +52,6 @@ Keep the existing predicates and tests unchanged.
 
 22.Run `swipl -q -s tests/45_q2_tests.pl -g run_tests -t halt`. Report the test result and any warnings. Leave all files unchanged.
 
-23. 
+23. Read skills/scheme-dev/SKILL.md. In code/45_q3.rkt, use #lang racket/base and implement only (inorder tree). A tree is either '() or (list value left right). Return the values as a list in left subtree, root, right subtree order. Return '() for an empty tree. Use only the assignment's allowed built-ins. Keep the file silent when loaded.
+
+24. 
