@@ -85,4 +85,16 @@ test(generate_equation_singleton_list, [fail]) :-
 test(generate_equation_no_solution, [fail]) :-
     generate_equation([2, 3, 4], _).
 
+test(all_equations_sorted_results, true(Equations == [
+    "4*2-5=3", "4*2=5+3", "4-2=5-3", "4/2=5-3",
+    "4=2*(5-3)", "4=2+(5-3)", "4=2+5-3"
+])) :-
+    all_equations([4, 2, 5, 3], Equations).
+
+test(all_equations_single_result, true(Equations == ["2*4=8"])) :-
+    all_equations([2, 4, 8], Equations).
+
+test(all_equations_no_solution, true(Equations == [])) :-
+    all_equations([2, 3, 4], Equations).
+
 :- end_tests(p2).

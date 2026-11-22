@@ -65,3 +65,8 @@ generate_equation(Numbers, Equation) :-
 all_equations(Numbers, Equations) :-
     findall(Equation, generate_equation(Numbers, Equation), Generated),
     sort(Generated, Equations).
+
+% count_equations(+Numbers, ?N) counts distinct equation strings.
+count_equations(Numbers, N) :-
+    all_equations(Numbers, Equations),
+    length(Equations, N).
