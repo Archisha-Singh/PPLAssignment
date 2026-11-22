@@ -62,3 +62,24 @@ Report the result for each case
 apply, yall, aggregate. Do not print anything other than what is specified. clean formatting and ensure fitting constraints. Clean up and recheck formatting
 
 28. Update only P1_REPORT.md for P1.b. Record the verified result count_solutions([1,2,3,4,5,6,7,8], 3) and explain that the original eight clues allow three valid assignments, so they do not determine a unique solution. Preserve any unrelated content in the report.
+
+29. Edit only code/45_q1.pl to add the clue(9, Solution) clause directly after clue 8. It should succeed when the same person works in testing and prefers the 'AI' project. Use no friend names in the clause.
+
+Put this exact comment immediately above it:
+% CLUE 9: The friend who prefers the AI project works in testing.
+
+Save the edit and stop there. We’ll verify uniqueness in a separate prompt.
+
+30.Create only tests/45_q1_tests.pl for the completed P1 implementation in code/45_q1.pl. Use SWI-Prolog PlUnit and load the solution using a path relative to the test file.
+
+Cover these cases:
+- candidate_assignment/1 generates 13824 distinct assignments with no duplicates.
+- Each clue from 1 to 8 succeeds on a matching complete assignment and fails on a nonmatching one.
+- count_solutions/2 returns 13824 for [], 7776 for [1], 3 for clues 1–8, and 1 for clues 1–9.
+- main/0 prints exactly four lines in Alex, Ben, Carla, Dana order, with the required spacing and unquoted atoms. Accept any valid assignment satisfying clues 1–8.
+
+Leave the solution and report unchanged. Stop after writing the test file.
+
+31. Tidy the indentation, spacing, and comments in code/45_q1.pl. Keep the logic and exact output unchanged.
+
+32. 
